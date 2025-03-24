@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const mongooseCurrency = require("mongoose-currency");
+import mongoose from "mongoose";
+import mongooseCurrency from "mongoose-currency";
 mongooseCurrency.loadType(mongoose);
 
 const inventorySchema = new mongoose.Schema({

@@ -1,11 +1,11 @@
-import Inventory from "../mongoose/schema/schema";
+import Inventory from "../mongoose/schema/Schema.js";
 
 const getItems = async (req, res) => {
   try {
-    const findItems = await Inventory.find(req.query);
+    const findItems = await Inventory.find(req.sanitizedQuery);
 
-    if (!findItems) {
-      res.status(404).send("Item doesn't exist");
+    if (findItems.length === 0) {
+      res.status(404).send("There are no items yet");
     }
     return res.render("items", { findItems });
   } catch (error) {

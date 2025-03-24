@@ -1,4 +1,6 @@
-const validateItems = async (req, res, next) => {
+import Inventory from "../mongoose/schema/Schema.js";
+
+export const validateItems = async (req, res, next) => {
   const tempItem = new Inventory(req.body);
 
   try {
@@ -13,7 +15,7 @@ const validateItems = async (req, res, next) => {
   }
 };
 
-const checkDoubleItems = async (req, res, next) => {
+export const checkDoubleItems = async (req, res, next) => {
   const existInventory = await Inventory.findOne({ name: req.body.name });
   try {
     if (existInventory) {
@@ -24,5 +26,3 @@ const checkDoubleItems = async (req, res, next) => {
     res.status(500).send(error);
   }
 };
-
-export default { validateItems, checkDoubleItems };
