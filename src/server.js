@@ -1,6 +1,7 @@
 import express, { json } from "express";
 import connectDB from "./database/connect_db.js";
 import dotenv from "dotenv";
+import itemsRoute from "./routes/itemsRoute.js";
 
 dotenv.config();
 
@@ -23,5 +24,8 @@ app.set("views", "src/views");
 app.get("/", (req, res) => {
   res.render("index", req.query);
 });
+
+// Items Route:
+app.use("/items", itemsRoute);
 
 app.listen(port, () => console.log(`server started: http://localhost:${port}`));

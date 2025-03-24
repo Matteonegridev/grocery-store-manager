@@ -1,5 +1,6 @@
-import { name } from "ejs";
-import mongoose, { Schema } from "mongoose";
+const mongoose = require("mongoose");
+const mongooseCurrency = require("mongoose-currency");
+mongooseCurrency.loadType(mongoose);
 
 const inventorySchema = new mongoose.Schema({
   name: {
@@ -9,18 +10,32 @@ const inventorySchema = new mongoose.Schema({
   },
   category: {
     type: mongoose.Schema.Types.String,
+    required: true,
   },
   quantity: {
     type: mongoose.Schema.Types.Number,
+    required: true,
+    min: 0,
   },
   price: {
-    type: mongoose.Schema.Types.String,
+    type: mongoose.Types.Currency,
+    currency: "USD",
+    precision: 2,
+    required: true,
+    min: 0,
   },
   expiryDate: {
-    type: mongoose.Schema.Types.String,
+    type: mongoose.Schema.Types.Date,
+    required: true,
+    validate: {
+      validator: (date) => {
+        return date > Date.now();
+      },
+    },
+    message: "Expiry date must be in the future",
   },
 });
 
-const Inventory = new Model("Inventory", inventorySchema);
+const Inventory = mongoose.model("Inventory", inventorySchema);
 
 export default Inventory;
