@@ -2,6 +2,7 @@ import express, { json } from "express";
 import connectDB from "./database/connect_db.js";
 import dotenv from "dotenv";
 import itemsRoute from "./routes/itemsRoute.js";
+import createItemsRoute from "./routes/createItems.js";
 import sanitize from "express-mongo-sanitize";
 
 dotenv.config();
@@ -29,5 +30,6 @@ app.get("/", (req, res) => {
 
 // Items Route:
 app.use("/items", itemsRoute);
+app.use("/items/add", createItemsRoute);
 
 app.listen(port, () => console.log(`server started: http://localhost:${port}`));
