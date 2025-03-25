@@ -15,6 +15,7 @@ connectDB(mongoUri);
 app.use(sanitize());
 
 // Body Parser
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // generate static files:

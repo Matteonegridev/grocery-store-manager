@@ -1,32 +1,28 @@
 import mongoose from "mongoose";
-import mongooseCurrency from "mongoose-currency";
-mongooseCurrency.loadType(mongoose);
+import currency from "mongoose-currency";
+currency.loadType(mongoose);
 
 const inventorySchema = new mongoose.Schema({
   name: {
     type: mongoose.Schema.Types.String,
-    required: true,
     trim: true,
   },
   category: {
     type: mongoose.Schema.Types.String,
-    required: true,
   },
   quantity: {
     type: mongoose.Schema.Types.Number,
-    required: true,
     min: 0,
   },
   price: {
-    type: mongoose.Types.Currency,
+    type: mongoose.Schema.Types.Currency,
     currency: "USD",
     precision: 2,
-    required: true,
     min: 0,
   },
   expiryDate: {
     type: mongoose.Schema.Types.Date,
-    required: true,
+    created: Date,
     validate: {
       validator: (date) => {
         return date > Date.now();

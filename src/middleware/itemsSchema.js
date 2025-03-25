@@ -16,7 +16,8 @@ export const validateItems = async (req, res, next) => {
 };
 
 export const checkDoubleItems = async (req, res, next) => {
-  const existInventory = await Inventory.findOne({ name: req.body.name });
+  const { name } = req.body;
+  const existInventory = await Inventory.findOne({ name });
   try {
     if (existInventory) {
       return res.status(409).json({ msg: "Item already exist" });

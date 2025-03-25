@@ -7,7 +7,7 @@ const getItems = async (req, res) => {
     if (findItems.length === 0) {
       return res.status(404).send("There are no items yet");
     }
-    return res.render("items", { findItems });
+    return res.render("partials/items", { items: findItems });
   } catch (error) {
     return res.send(error);
   }

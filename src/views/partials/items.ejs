@@ -15,6 +15,7 @@
           <th>Category</th>
           <th>Quantity</th>
           <th>Price</th>
+          <th>Expiration Date</th>
         </tr>
       </thead>
       <tbody>
@@ -23,7 +24,8 @@
           <td><%= item.name %></td>
           <td><%= item.category %></td>
           <td><%= item.quantity %></td>
-          <td>$<%= item.price.toFixed(2) %></td>
+          <td>$<%= item.price ? ((item.price / 100).toFixed(2)) : ""%></td>
+          <td><%= item.expiryDate ? item.expiryDate.toLocaleString().slice(0, 10) : "N/A" %></td>
         </tr>
         <% }); %>
       </tbody>
