@@ -20,7 +20,7 @@ export const checkDoubleItems = async (req, res, next) => {
   const existInventory = await Inventory.findOne({ name });
   try {
     if (existInventory) {
-      return res.status(409).json({ msg: "Item already exist" });
+      return res.redirect("/items/add");
     }
     next();
   } catch (error) {

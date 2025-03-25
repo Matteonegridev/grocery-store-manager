@@ -8,8 +8,7 @@ const createItems = async (req, res) => {
   try {
     const createInventory = new Inventory(req.body);
     const saveItem = await createInventory.save();
-    res.status(200).send(body);
-    res.redirect("/");
+    return res.redirect("/items");
   } catch (error) {
     res.status(500).send("Error registering Item", error);
   }
