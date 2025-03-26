@@ -8,9 +8,18 @@
     <title>Document</title>
   </head>
   <body>
-    <%- include('partials/navbar') %>
-    <h1>hello</h1>
-    <%- include('partials/footer') %>
+    <%- include('navbar') %>
+    <main>
+      <h1>search by category:</h1>
+      <div>
+        <ul>
+          <% categories.forEach(category => { %>
+          <li><a href=""><%= category %></a></li>
+          <%}); %>
+        </ul>
+      </div>
+    </main>
+    <%- include('footer') %>
     <script src="/scripts/script.js"></script>
   </body>
 </html>
