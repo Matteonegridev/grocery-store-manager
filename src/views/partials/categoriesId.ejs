@@ -10,18 +10,12 @@
   <body>
     <%- include('navbar') %>
     <main>
-      <h1>search by category:</h1>
+      <h1>category:</h1>
       <div>
         <ul>
-          <% categories.forEach(category => { %>
-          <li>
-            <a
-              href="/categories/<%= category
-           %>"
-              ><%= category %></a
-            >
-          </li>
-          <%}); %>
+          <% category.forEach(item => { %>
+          <li><%= item.name %></li>
+          <% }); %>
         </ul>
       </div>
     </main>
