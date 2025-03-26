@@ -5,6 +5,7 @@ import itemsRoute from "./routes/itemsRoute.js";
 import createItemsRoute from "./routes/createItems.js";
 import sanitize from "express-mongo-sanitize";
 import categories from "./routes/categories.js";
+import itemId from "./routes/itemId.js";
 
 dotenv.config();
 
@@ -34,7 +35,13 @@ app.get("/", (req, res) => {
 app.use("/items", itemsRoute);
 app.use("/items/add", createItemsRoute);
 
+// View Item route:
+app.use("/items", itemId);
+
 // Category route:
 app.use("/categories", categories);
+
+// View Category route:
+// app.use("/categories/:id");
 
 app.listen(port, () => console.log(`server started: http://localhost:${port}`));

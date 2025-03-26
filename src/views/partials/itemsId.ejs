@@ -9,7 +9,6 @@
   </head>
   <body>
     <%- include('navbar') %>
-    <a href="/items/add">Add New Item</a>
     <table>
       <thead>
         <tr>
@@ -21,16 +20,13 @@
         </tr>
       </thead>
       <tbody>
-        <% items.forEach(item => { %>
         <tr>
           <td><%= item.name %></td>
           <td><%= item.category %></td>
           <td><%= item.quantity %></td>
           <td>$<%= item.price ? ((item.price / 100).toFixed(2)) : ""%></td>
           <td><%= item.expiryDate ? item.expiryDate.toLocaleString().slice(0, 10) : "N/A" %></td>
-          <td><a href="/items/<%= item._id %>">View Item</a></td>
         </tr>
-        <% }); %>
       </tbody>
     </table>
     <%- include('footer') %>
