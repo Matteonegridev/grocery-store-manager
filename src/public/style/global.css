@@ -7,3 +7,10 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
 }
+a {
+  text-decoration: none;
+}
+ul,
+li {
+  list-style: none;
+}

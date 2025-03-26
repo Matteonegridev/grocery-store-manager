@@ -14,7 +14,7 @@
       <div>
         <ul>
           <% category.forEach(item => { %>
-          <li><%= item.name %></li>
+          <li><a href="/<%= item._id %>"><%= item.name %></a></li>
           <% }); %>
         </ul>
       </div>
