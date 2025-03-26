@@ -7,6 +7,7 @@ import sanitize from "express-mongo-sanitize";
 import categories from "./routes/categories.js";
 import itemId from "./routes/itemId.js";
 import categoriesId from "./routes/categoriesId.js";
+import methodOverride from "method-override";
 
 dotenv.config();
 
@@ -27,6 +28,8 @@ app.use(express.static("src/public"));
 // ejs setup:
 app.set("view engine", "ejs");
 app.set("views", "./src/views");
+
+app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
   res.render("index", req.query);

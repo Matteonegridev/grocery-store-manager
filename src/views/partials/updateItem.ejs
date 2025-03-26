@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/items/<%= updateItem._id %>?_method=PUT" method="post">
+      <label>Name <input type="text" value="<%= updateItem.name %>" name="name" /></label>
+      <label>Category<input type="text" value="<%= updateItem.category %>" name="category" /></label>
+      <label>Quantity<input type="number" value="<%= updateItem.quantity %>" name="quantity" /></label>
+      <label>Price<input type="number" value="<%= updateItem.price %>" name="price" /></label>
+      <label>Expiry Date<input type="date" value="<%= updateItem.expiryDate %>" name="expiryDate" /></label>
+      <button type="submit">submit</button>
+    </form>
+  </body>
+</html>

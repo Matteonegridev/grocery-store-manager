@@ -26,6 +26,7 @@
           <td><%= item.quantity %></td>
           <td>$<%= item.price ? ((item.price / 100).toFixed(2)) : ""%></td>
           <td><%= item.expiryDate ? item.expiryDate.toLocaleString().slice(0, 10) : "N/A" %></td>
+          <td><a href="/items/update/<%= item._id %>">Update Item</a></td>
         </tr>
       </tbody>
     </table>
